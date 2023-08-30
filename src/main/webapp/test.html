@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let source=[{
+          id:3,
+          name:"aaaa",
+          pid:1
+        },
+            {
+                id:2,
+                name:"bbb",
+                pid:2
+            },
+            {
+              id: 4,
+              name:"ccc",
+              pid:1
+            },
+            {
+                id:5,
+                name:"ddd",
+                pid:4
+            },
+            {
+                id: 6,
+                name:"eeeee",
+                pid:4
+            },
+            {
+                id:7,
+                name:"fff",
+                pid:6
+            },
+            {
+                id: 8,
+                name:"gggg",
+                pid:5
+            },
+            {
+                id:9,
+                name:"hhhh",
+                pid:5
+            },
+            {
+                id: 10,
+                name:"lllll",
+                pid:6
+            }
+        ];
+        function totree(data){
+            var res=[];
+            var map=[];
+            console.log(data);
+            data.forEach(item=>{
+                map[item.id]=item;
+            });
+            console.log(map);
+            return res;
+        }
+        console.log(totree(source));
+    </script>
+</body>
+</html>

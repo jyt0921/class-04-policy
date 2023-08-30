@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>政策显示</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--    <script type="text/javascript" src="js/vue.min.js"></script>-->
+    <script src="layui/jquery-3.3.1.js"></script>
+    <script src="layui/layui.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="layui/css/layui.css" tppabs="http://res.layui.com/layui/dist/css/layui.css"
+          media="all">
+</head>
+<body>
+<div id="qwe">
+
+</div>
+<style>
+    .layertest {
+        display: none;
+    }
+</style>
+<div class="layertest" id="layertest">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>政策指定</legend>
+    </fieldset>
+    <div class="layui-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">合同名称</label>
+            <div class="layui-input-inline">
+                <input type="text" name="cname" id="cname" required lay-verify="required" placeholder="请输入合同名称"
+                       autocomplete="off" class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">货物名称</label>
+        <div class="layui-input-inline">
+            <input type="text" id="cgname" name="cgname" required lay-verify="required" placeholder="请输入货物名称"
+                   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">货物类型</label>
+        <div class="layui-input-block">
+            <input type="radio" name="cgtype" value="全色染布" title="全色染布" checked="">全色染布
+            <input type="radio" name="cgtype" value="印花染布" title="印花染布">印花染布
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">货物颜色</label>
+        <div class="layui-input-inline">
+            <input type="text" name="cgrgb" id="cgrgb" required lay-verify="required" placeholder="请输入货物颜色"
+                   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">货物数量</label>
+        <div class="layui-input-inline">
+            <input type="text" id="cgsum" name="cgsum" required lay-verify="required" placeholder="请输入货物数量"
+                   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">签订交货日期</label>
+        <div class="layui-input-inline">
+            <input type="text" id="cjdate" name="cjdate" required lay-verify="required" placeholder="请输入交货日期"
+                   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">操作人</label>
+        <div class="layui-input-inline">
+            <input type="text" id="cpnum" name="cpnum" required lay-verify="required" placeholder="请输入操作人工号"
+                   autocomplete="off" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" value="立即提交" id="add">立即提交</button>
+            <button class="layui-btn layui-btn-primary" value="重置" id="reset">重置</button>
+        </div>
+    </div>
+</div>
+</div>
+<div id="ppp">
+<!--    <div style="background-color: #00F7DE;width: 200px;height: 1000px;margin-top:160px;float: left"></div>-->
+    <div id="test4" class="demo-tree"style=";width: 200px;height: 1000px;margin-top:160px;float: left"></div>
+    <div style="">
+<!--        <div style="background-color: #00F7DE;width: 100px;height: 1000px"></div>-->
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>政策展示表</legend>
+        </fieldset>
+        <table class="layui-hide" id="test" lay-filter="test">
+
+        </table>
+<script type="text/html" id="toolbarDemo">
+    <div class="demoTable">
+        政策名称:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="layui-inline">
+            <input class="layui-input" name="zcname" id="demoReload01" autocomplete="off">
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        发文字号:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="layui-inline">
+            <div style="width: 100px"> </div>
+            <input class="layui-input" name="id" id="demoReload02" autocomplete="off">
+        </div>
+        <div></div>
+        发文机构:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="layui-inline">
+            <input class="layui-input" name="id" id="demoReload03" autocomplete="off">
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        全文检索:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="layui-inline">
+            <input class="layui-input" name="id" id="demoReload04" autocomplete="off">
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="layui-btn" type="button" id="search_btn" data-type="reload">搜索</button>
+    </div>
+
+</script>
+
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-xs" lay-event="chakan">查看</a>
+</script>
+</div></div>
+<script>
+    layui.use('table', function () {
+
+        var table = layui.table;
+        var $ = layui.jquery;
+        table.render({
+            elem: '#test'
+            , url: 'selectall'
+            , toolbar: '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
+            , defaultToolbar: ['filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
+                title: '提示'
+                , layEvent: 'LAYTABLE_TIPS'
+                , icon: 'layui-icon-tips'
+            }]
+            , title: '合同数据表'
+            , id: 'test'
+            , cols: [[
+                {type: 'checkbox', fixed: 'left'}
+                , {field: 'name', title: '政策名称', width: 300, sort: true, templet: '#herfFormalUrl'}//超链接
+                , {field: 'organ', title: '发文机构', width: 200, edit: 'text'}
+                , {field: 'pubdata', title: '颁布日期', width: 200, edit: 'text'}
+                , {field: 'type', title: '政策分类', width: 130, edit: 'text'}
+                , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 170}
+            ]]
+            , page: true
+            , limit: 20
+        });
+
+        layui.use(['tree', 'util'], function(){
+            var tree = layui.tree
+                ,layer = layui.layer
+                ,util = layui.util
+                //模拟数据
+                ,data = [{
+                }]
+            //手风琴模式
+            tree.render({
+                elem: '#test4'
+                ,data:[{title:"综合(87)",id:"1001"},{title:"科研机构改革(17)",id:"1002"},{title:"科技计划管理(93)"},{title:"科技经费与财务(39)"},{title:"基础研究与科研基地",children:[{title:"基础研究(29)"},{title:"平台基地(79)"}]},{title:"企业技术进步与高新技术产业化(6)",children: [{title:"企业(85)"},{title:"产业(27)"},{title:"创新载体(25)"}]},{title:"农村科技与社会发展(29)"},{title:"科技人才(39)"},{title:"科技中介服务(17)"},{title:"科技条件与标准(2)"},{title:"科技金融与税收(30)"},{title:"科技成果与知识产权(84)"},{title:"科技奖励(28)"}]
+                ,accordion: true
+            });
+            tree.render({
+                elem: '#test4'
+                ,data:[{title:"综合(87)",id:"1001"},{title:"科研机构改革(17)",id:"1002"},{title:"科技计划管理(93)"},{title:"科技经费与财务(39)"},{title:"基础研究与科研基地",children:[{title:"基础研究(29)"},{title:"平台基地(79)"}]},{title:"企业技术进步与高新技术产业化(6)",children: [{title:"企业(85)"},{title:"产业(27)"},{title:"创新载体(25)"}]},{title:"农村科技与社会发展(29)"},{title:"科技人才(39)"},{title:"科技中介服务(17)"},{title:"科技条件与标准(2)"},{title:"科技金融与税收(30)"},{title:"科技成果与知识产权(84)"},{title:"科技奖励(28)"}]
+                ,click: function(obj){
+                    console.log(obj.data.title)
+                    table.reload('test', {
+                        where: {
+                            sum: obj.data.title
+                        },
+                        url: 'select01'
+                        ,
+                        page: {
+                            curr: 1
+                        }
+                    });
+                }
+            });
+        });
+
+        $(document).on('click', '#search_btn', function (data) {
+            var sel01 = $('#demoReload01');
+            var sel02 = $('#demoReload02');
+            var sel03 = $('#demoReload03');
+            var sel04 = $('#demoReload04');
+            table.reload('test', {
+                where: {
+                    sel01: sel01.val(),
+                    sel02: sel02.val(),
+                    sel03: sel03.val(),
+                    sel04: sel04.val()
+                },
+                url: 'select'
+                ,
+                page: {
+                    curr: 1
+                }
+            });
+        });
+
+
+        //头工具栏事件
+        table.on('toolbar(test)', function (obj) {
+            var checkStatus = table.checkStatus(obj.config.id);
+            switch (obj.event) {
+                case 'getCheckData':
+                    var data = checkStatus.data;
+                    layer.alert(JSON.stringify(data));
+                    break;
+                case 'getCheckLength':
+                    var data = checkStatus.data;
+                    layer.msg('选中了：' + data.length + ' 个');
+                    break;
+                case 'isAll':
+                    layer.msg(checkStatus.isAll ? '全选' : '未全选');
+                    break;
+
+                //自定义头工具栏右侧图标 - 提示
+                case 'LAYTABLE_TIPS':
+                    layer.alert('这是工具栏右侧自定义的一个图标按钮');
+                    break;
+            }
+            ;
+        });
+
+
+        //监听行工具事件 del
+        table.on('tool(test)', function (obj) {
+            var data = obj.data;
+            //console.log(obj)
+            //删除
+            if (obj.event === 'chakan') {
+                // layer.confirm('查询<br>'+ '<br>名称: '+ data.name+ '<br>机构: '+ data.organ , function(index){
+                $.ajax({
+                    url: "zhuan",
+                    type: "POST",
+                    dataType: "text",
+                    data: {name: data.name, organ: data.organ},
+                    success: function (msg) {
+                        // document.getElementById("qwe").innerHTML = msg;
+                        // document.getElementById('ppp').innerHTML = "";
+                            layer.open({
+                                type: 1,
+                                skin: 'layui-layer-rim', //加上边框
+                                area: ['600px', '600px'], //宽高
+                                content:msg
+                            });
+                    }
+                });
+                // return false;
+            }
+            // //修改
+            // else if(obj.event === 'edit'){
+            //     layer.confirm('更改为以下信息<br>'+ '<br>合同名称: '+ data.cname +'<br>货物名称: ' +data.cgname +'<br>货物类型: ' +data.cgtype +'<br>货物颜色: ' +data.cgrgb +'<br>货物数量: ' +data.cgsum  +'<br>合同拟制人: ' +data.cpnum, function(index){
+            //         $.ajax({
+            //             url: "updatecontract",
+            //             type: "POST",
+            //             data: {cnum:data.cnum,cname: data.cname,cgname: data.cgname,cgtype: data.cgtype,cgrgb: data.cgrgb,cgsum: data.cgsum,cpnum: data.cpnum},
+            //             success: function (msg) {
+            //                 if (msg == "ok") {
+            //                     //关闭弹框
+            //                     layer.close(index);
+            //                     layer.msg('修改成功!',function() {time:2000})
+            //                 } else {
+            //                     layer.msg("修改失败", function() {time:2000});
+            //                 }
+            //             }
+            //         });
+            //         return false;
+            //     });
+            // }
+            //
+            // else if(obj.event === 'add'){
+            //     layer.open({
+            //         type: 1,
+            //         skin: 'layui-layer-rim', //加上边框
+            //         area: ['600px', '600px'], //宽高
+            //         content: $('#layertest')
+            //     });
+            //
+            //     table.reload('test',{
+            //
+            //         url:'showorder'
+            //         ,
+            //         page: {
+            //             curr:1
+            //         }
+            //     });
+            // }
+
+        });
+    });
+    function getTreeData() {
+        var data = [];
+        $.ajax({
+            url: "tree",    //后台数据请求地址
+            type: "post",
+            async: false,
+            success: function (resut) {
+                console.log(resut);
+                data = resut;
+            }
+        });
+        return data;
+    }
+</script>
+
+</body>
+</html>
